@@ -1,6 +1,6 @@
 # skingflow Chat (Node.js)
 
-A basic chat application using PocketFlow's `flowlib.js` and OpenAI's GPT-4o model.
+A basic chat application using PocketFlow's `skingflow.js` and OpenAI's GPT-4o model.
 
 ## Features
 - Conversational chat interface in the terminal
@@ -28,4 +28,4 @@ A basic chat application using PocketFlow's `flowlib.js` and OpenAI's GPT-4o mod
 ## Files
 - `main.js`: ChatNode and chat flow implementation
 - `utils.js`: OpenAI API wrapper
-- `../flowlib.js`: skingflow flow library
+- `../skingflow.js`: skingflow flow library
