@@ -1,0 +1,15 @@
+{
+  "name": "pocketflow-chat",
+  "version": "1.0.0",
+  "description": "A basic chat application using PocketFlow flowlib.js and OpenAI GPT-4o.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "deasync": "^0.1.30",
+    "https-proxy-agent": "^7.0.6",
+    "node-fetch": "^2.7.0",
+    "openai": "^4.98.0"
+  }
+}
