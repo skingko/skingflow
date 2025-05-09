@@ -1,0 +1,21 @@
+{
+    "name": "skingflow",
+    "version": "1.0.0",
+    "description": "A flexible flow engine for Node.js, inspired by pocketflow.",
+    "main": "skingflow.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/skingko/skingflow"
+    },
+    "author": "skingko <venture2157@gmail.com>",
+    "license": "MIT",
+    "keywords": [
+        "flow",
+        "chatbot",
+        "ai",
+        "workflow"
+    ],
+    "dependencies": {
+        "skingflow": "^1.0.0"
+    }
+}
