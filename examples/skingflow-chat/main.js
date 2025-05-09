@@ -1,4 +1,4 @@
-const { Node, Flow } = require("../flowlib.js");
+const { Node, Flow } = require("../skingflow.js");
 const { callLLM } = require("./utils.js");
 const readline = require("readline");
 const deasync = require("deasync");
