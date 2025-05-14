@@ -1,0 +1,14 @@
+{
+  "name": "skingflow-agent",
+  "version": "1.0.0",
+  "description": "A Node.js implementation of pocketflow-agent using skingflow.",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "https-proxy-agent": "^7.0.6",
+    "openai": "^4.0.0"
+  }
+}
