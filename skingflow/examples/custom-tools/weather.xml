@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool>
+    <name>get_weather</name>
+    <description>Get current weather information for a specified location</description>
+    <category>utility</category>
+    <version>1.0.0</version>
+    <author>skingko</author>
+    
+    <parameters>
+        <param name="location" type="string" required="true">
+            The location to get weather for (city, country)
+        </param>
+        <param name="units" type="string" required="false">
+            Temperature units: celsius, fahrenheit, kelvin
+        </param>
+        <param name="include_forecast" type="boolean" required="false">
+            Whether to include forecast data
+        </param>
+    </parameters>
+    
+    <returns>
+        <description>Weather information object</description>
+        <type>object</type>
+    </returns>
+    
+    <examples>
+        <example>
+            {
+                "location": "London, UK",
+                "units": "celsius"
+            }
+        </example>
+        <example>
+            {
+                "location": "New York, USA",
+                "units": "fahrenheit",
+                "include_forecast": true
+            }
+        </example>
+    </examples>
+    
+    <tags>weather, api, utility</tags>
+</tool>

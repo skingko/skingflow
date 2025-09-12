@@ -1,0 +1,37 @@
+{
+  "name": "skingflow-examples",
+  "version": "2.0.0",
+  "description": "Examples for the skingflow framework",
+  "type": "module",
+  "scripts": {
+    "simple-chat": "node simple-chat/main.js",
+    "orchestration": "node orchestration/main.js",
+    "custom-tools": "node custom-tools/main.js",
+    "demo": "npm run simple-chat"
+  },
+  "keywords": [
+    "ai",
+    "framework",
+    "llm",
+    "streaming",
+    "tools",
+    "memory",
+    "orchestration"
+  ],
+  "dependencies": {
+    "openai": "^4.0.0",
+    "@anthropic-ai/sdk": "^0.24.0",
+    "yaml": "^2.3.0",
+    "pg": "^8.11.0",
+    "redis": "^4.6.0",
+    "mongodb": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "skingko <venture2157@gmail.com>",
+  "license": "MIT"
+}

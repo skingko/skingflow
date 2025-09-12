@@ -1,22 +1,9 @@
 // node_flow.js – A Node.js port of the Python node/flow orchestration framework
-// -----------------------------------------------------------------------------
-// The public API mirrors the original Python design as closely as the language
-// allows. Key differences:
-//   • JavaScript does not support operator overloading (e.g. "node1 >> node2"),
-//     so use the provided fluent helpers instead:
-//         node1.next(node2)                          // default transition
-//         node1.when('error').next(errorHandler)     // conditional transition
-//   • Synchronous retry waits are implemented with a blocking sleep util. For
-//     high‑throughput scenarios, prefer AsyncNode‑based flows to avoid blocking
-//     the Node.js event loop.
-// -----------------------------------------------------------------------------
-//
 // Copyright (c) skingko
 // https://github.com/skingko/skingflow
 // Author: skingko <venture2157@gmail.com>
 //
 
-// Helper: blocking sleep (sync) -------------------------------------------------
 function sleepSync(ms) {
   const end = Date.now() + ms;
   // eslint-disable-next-line no-empty
@@ -24,7 +11,6 @@ function sleepSync(ms) {
 }
 
 
-// Helper: shallow clone of an object, preserving prototype ---------------------
 function shallowClone(obj) {
   if (!obj) return obj;
   return Object.assign(Object.create(Object.getPrototypeOf(obj)), obj);
@@ -37,15 +23,10 @@ class BaseNode {
     this.successors = new Map(); // action → node
   }
 
-  /** Merge‑or‑replace runtime parameters for this node instance. */
   setParams(params = {}) {
     this.params = params;
   }
 
-  /**
-   * Attach a successor node for a given action (default="default").
-   * Returns the target node to enable fluent chaining.
-   */
   next(node, action = 'default') {
     if (this.successors.has(action)) {
       console.warn(`Overwriting successor for action '${action}'`);
@@ -54,7 +35,6 @@ class BaseNode {
     return node;
   }
 
-  /** Fluent conditional builder: node.when('error').next(handler) */
   when(action) {
     if (typeof action !== 'string') {
       throw new TypeError('Action must be a string');
@@ -64,12 +44,9 @@ class BaseNode {
     };
   }
 
-  // Override‑points (sync) ------------------------------------------------------
-  /* eslint-disable class-methods-use-this, no-unused-vars */
   prep(shared) {}
   exec(prepRes) {}
   post(shared, prepRes, execRes) {}
-  /* eslint-enable class-methods-use-this */
 
   _exec(prepRes) {
     return this.exec(prepRes);
@@ -81,7 +58,6 @@ class BaseNode {
     return this.post(shared, p, e);
   }
 
-  /** Execute a single node in isolation (no successor traversal). */
   run(shared = {}) {
     if (this.successors.size) {
       console.warn('Node won\'t run successors. Use Flow.');
@@ -90,7 +66,6 @@ class BaseNode {
   }
 }
 
-// Node (sync, with retries) -----------------------------------------------------
 class Node extends BaseNode {
   constructor({ maxRetries = 1, wait = 0 } = {}) {
     super();
@@ -99,12 +74,9 @@ class Node extends BaseNode {
     this.curRetry = 0;
   }
 
-  /** Override to customise fallback behaviour. */
-  /* eslint-disable class-methods-use-this, no-unused-vars */
   execFallback(prepRes, err) {
     throw err;
   }
-  /* eslint-enable class-methods-use-this */
 
   _exec(prepRes) {
     for (this.curRetry = 0; this.curRetry < this.maxRetries; this.curRetry += 1) {
@@ -121,21 +93,18 @@ class Node extends BaseNode {
   }
 }
 
-// BatchNode (sync) -------------------------------------------------------------
 class BatchNode extends Node {
   _exec(items = []) {
     return items.map((item) => super._exec(item));
   }
 }
 
-// Flow (sync orchestration) -----------------------------------------------------
 class Flow extends BaseNode {
   constructor(start = null) {
     super();
     this.startNode = start;
   }
 
-  /** Chainable setter: flow.start(nodeA) */
   start(node) {
     this.startNode = node;
     return node;
@@ -169,14 +138,11 @@ class Flow extends BaseNode {
     return this.post(shared, p, o);
   }
 
-  /* eslint-disable class-methods-use-this */
   post(shared, prepRes, execRes) {
     return execRes;
   }
-  /* eslint-enable class-methods-use-this */
 }
 
-// BatchFlow (sync) -------------------------------------------------------------
 class BatchFlow extends Flow {
   _run(shared) {
     const pr = this.prep(shared) || [];
@@ -185,21 +151,17 @@ class BatchFlow extends Flow {
   }
 }
 
-// -----------------------------------------------------------------------------
-// Asynchronous variants (Promise/async‑await) ----------------------------------
-// -----------------------------------------------------------------------------
 
-// AsyncNode --------------------------------------------------------------------
 class AsyncNode extends Node {
-  // Override‑points (async) ---------------------------------------------------
-  /* eslint-disable class-methods-use-this, no-unused-vars */
   async prepAsync(shared) {}
   async execAsync(prepRes) {}
+  async *execAsyncStream(prepRes) {
+    throw new Error('execAsyncStream not implemented');
+  }
   async execFallbackAsync(prepRes, err) {
     throw err;
   }
   async postAsync(shared, prepRes, execRes) {}
-  /* eslint-enable class-methods-use-this */
 
   async _exec(prepRes) {
     for (let i = 0; i < this.maxRetries; i += 1) {
@@ -210,7 +172,6 @@ class AsyncNode extends Node {
           return this.execFallbackAsync(prepRes, err);
         }
         if (this.wait > 0) {
-          // eslint-disable-next-line no-await-in-loop
           await new Promise((res) => setTimeout(res, this.wait));
         }
       }
@@ -241,24 +202,19 @@ class AsyncNode extends Node {
 class AsyncBatchNode extends AsyncNode {
   async _exec(items = []) {
     const results = [];
-    /* eslint-disable no-restricted-syntax */
     for (const item of items) {
-      // eslint-disable-next-line no-await-in-loop
       results.push(await super._exec(item));
     }
-    /* eslint-enable no-restricted-syntax */
     return results;
   }
 }
 
-// AsyncParallelBatchNode -------------------------------------------------------
 class AsyncParallelBatchNode extends AsyncNode {
   async _exec(items = []) {
     return Promise.all(items.map((item) => super._exec(item)));
   }
 }
 
-// AsyncFlow --------------------------------------------------------------------
 class AsyncFlow extends Flow {
   async _orchAsync(shared, params = null) {
     let curr = shallowClone(this.startNode);
@@ -280,12 +236,9 @@ class AsyncFlow extends Flow {
     return this.postAsync(shared, p, o);
   }
 
-  /* eslint-disable class-methods-use-this */
   async postAsync(shared, prepRes, execRes) {
     return execRes;
   }
-  /* eslint-enable class-methods-use-this */
-
   
   _run() {
     throw new Error('Use runAsync().');
@@ -296,17 +249,13 @@ class AsyncFlow extends Flow {
 class AsyncBatchFlow extends AsyncFlow {
   async _runAsync(shared) {
     const pr = (await this.prepAsync(shared)) || [];
-    /* eslint-disable no-restricted-syntax */
     for (const bp of pr) {
-      // eslint-disable-next-line no-await-in-loop
       await this._orchAsync(shared, { ...this.params, ...bp });
     }
-    /* eslint-enable no-restricted-syntax */
     return this.postAsync(shared, pr, null);
   }
 }
 
-// AsyncParallelBatchFlow -------------------------------------------------------
 class AsyncParallelBatchFlow extends AsyncFlow {
   async _runAsync(shared) {
     const pr = (await this.prepAsync(shared)) || [];
@@ -328,4 +277,3 @@ module.exports = {
   AsyncBatchFlow,
   AsyncParallelBatchFlow,
 };
-
