@@ -1,0 +1,53 @@
+name: translate_text
+description: Translate text from one language to another
+category: language
+version: 1.0.0
+author: skingko
+license: MIT
+
+parameters:
+  text:
+    type: string
+    description: The text to translate
+    required: true
+  source_language:
+    type: string
+    description: Source language code (e.g., 'en', 'es', 'fr')
+    required: false
+  target_language:
+    type: string
+    description: Target language code
+    required: true
+    enum: ['en', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'ja', 'ko', 'zh']
+
+returns:
+  description: Translation result object
+  type: object
+  properties:
+    original_text:
+      type: string
+    translated_text:
+      type: string
+    source_language:
+      type: string
+    target_language:
+      type: string
+    confidence:
+      type: number
+
+examples:
+  - text: "Hello, how are you?"
+    target_language: "es"
+  - text: "Bonjour le monde"
+    source_language: "fr"
+    target_language: "en"
+
+tags:
+  - translation
+  - language
+  - nlp
+
+metadata:
+  api_endpoint: "https://api.translate.service.com/v1/translate"
+  rate_limit: 1000
+  requires_auth: true

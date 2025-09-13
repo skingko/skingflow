@@ -1,0 +1,38 @@
+name: read_file
+description: |
+  Tool for reading content from a file in the virtual filesystem. 
+  
+  This allows agents to access files that were previously created in the session,
+  enabling information sharing and building upon previous work.
+  
+  Use this tool when you need to:
+  - Read content from files created earlier in the session
+  - Access shared data between agents
+  - Review previously generated code or documents
+  - Check file contents before making modifications
+
+category: filesystem
+tags:
+  - file-operations
+  - virtual-filesystem
+  - read-access
+
+parameters:
+  filename:
+    type: string
+    description: Name of the file to read from the virtual filesystem
+    required: true
+
+examples:
+  - input:
+      filename: "config.json"
+    output: |
+      {
+        "app_name": "MyApp",
+        "version": "1.0.0",
+        "debug": true
+      }
+  
+  - input:
+      filename: "nonexistent.txt"
+    output: "Error: File 'nonexistent.txt' does not exist"

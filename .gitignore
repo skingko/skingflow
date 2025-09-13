@@ -2,3 +2,10 @@ node_modules/
 .DS_Store
 .env
 *.log
+
+# 屏蔽 deepagents 项目
+deepagents/
+
+# 屏蔽冲突文件
+**/package-lock.sync-conflict-*.json
+**/package.sync-conflict-*.json

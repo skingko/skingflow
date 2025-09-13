@@ -1,0 +1,45 @@
+name: edit_file
+description: |
+  Tool for editing files in the virtual filesystem by replacing specific text content.
+  
+  This performs exact string replacement, similar to find-and-replace functionality.
+  Use this when you need to make targeted changes to existing files without rewriting the entire content.
+  
+  Important notes:
+  - The old_string must match exactly (including whitespace and formatting)
+  - If old_string appears multiple times, only the first occurrence will be replaced
+  - For multiple replacements, call this tool multiple times
+  - The file must exist before editing
+
+category: filesystem
+tags:
+  - file-operations
+  - virtual-filesystem
+  - text-editing
+
+parameters:
+  filename:
+    type: string
+    description: Name of the file to edit
+    required: true
+  old_string:
+    type: string
+    description: Exact text to find and replace (must match exactly)
+    required: true
+  new_string:
+    type: string
+    description: Text to replace the old_string with
+    required: true
+
+examples:
+  - input:
+      filename: "config.js"
+      old_string: "debug: false"
+      new_string: "debug: true"
+    output: 'File "config.js" edited successfully (version 2)'
+  
+  - input:
+      filename: "nonexistent.txt"
+      old_string: "anything"
+      new_string: "something"
+    output: 'Error: File "nonexistent.txt" does not exist'
