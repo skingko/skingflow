@@ -1,6 +1,6 @@
 {
   "name": "skingflow-agent",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A Node.js implementation of pocketflow-agent using skingflow.",
   "main": "main.js",
   "type": "module",

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool>
+    <name>web_search</name>
+    <description>Search the web for information on a given topic</description>
+    <category>search</category>
+    <version>1.0.0</version>
+    <author>skingko</author>
+    
+    <parameters>
+        <param name="query" type="string" required="true">
+            The search query to look for
+        </param>
+        <param name="max_results" type="number" required="false">
+            Maximum number of results to return (default: 5)
+        </param>
+        <param name="language" type="string" required="false">
+            Language for search results (default: en)
+        </param>
+    </parameters>
+    
+    <returns>
+        <description>Search results array</description>
+        <type>array</type>
+    </returns>
+    
+    <examples>
+        <example>
+            {
+                "query": "artificial intelligence latest news",
+                "max_results": 3
+            }
+        </example>
+        <example>
+            {
+                "query": "weather forecast Beijing",
+                "language": "zh"
+            }
+        </example>
+    </examples>
+    
+    <tags>search, web, information</tags>
+</tool>

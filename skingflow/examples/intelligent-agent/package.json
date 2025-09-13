@@ -1,0 +1,45 @@
+{
+  "name": "skingflow-intelligent-agent",
+  "version": "1.0.0",
+  "description": "Complete intelligent agent system using skingflow framework",
+  "type": "module",
+  "main": "src/agent.js",
+  "scripts": {
+    "start": "node src/agent.js",
+    "test": "node tests/test-runner.js",
+    "test:llm": "node tests/test-llm.js",
+    "test:memory": "node tests/test-memory.js",
+    "test:tools": "node tests/test-tools.js",
+    "test:orchestration": "node tests/test-orchestration.js",
+    "test:integration": "node tests/test-integration.js",
+    "setup": "node scripts/setup.js",
+    "demo": "node demo/demo.js"
+  },
+  "keywords": [
+    "skingflow",
+    "ai",
+    "agent",
+    "llm",
+    "memory",
+    "tools",
+    "orchestration"
+  ],
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "dotenv": "^16.3.0",
+    "inquirer": "^9.2.0",
+    "js-yaml": "^4.1.0",
+    "node-fetch": "^3.3.0",
+    "pg": "^8.11.0",
+    "yaml": "^2.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/pg": "^8.10.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "skingko <venture2157@gmail.com>",
+  "license": "MIT"
+}

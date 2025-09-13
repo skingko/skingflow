@@ -8,6 +8,18 @@
 [![Documentation](https://img.shields.io/badge/docs-online-blue.svg)](https://skingflow-docs.pages.dev/)
 [![NPM Version](https://img.shields.io/npm/v/skingflow.svg)](https://www.npmjs.com/package/skingflow)
 
+## 🌍 Language Support / 语言支持
+
+This project is available in multiple languages:
+
+| Language | README | Documentation |
+|----------|--------|---------------|
+| 🇺🇸 **English** | [README.md](README.md) | [Online Docs](https://skingflow-docs.pages.dev/) |
+| 🇨🇳 **中文** | [README.zh.md](README.zh.md) | [中文文档](https://skingflow-docs.pages.dev/zh/) |
+| 🇪🇸 **Español** | [README.es.md](README.es.md) | [Docs en Español](https://skingflow-docs.pages.dev/es/) |
+| 🇫🇷 **Français** | [README.fr.md](README.fr.md) | [Docs en Français](https://skingflow-docs.pages.dev/fr/) |
+| 🇩🇪 **Deutsch** | [README.de.md](README.de.md) | [Dokumentation auf Deutsch](https://skingflow-docs.pages.dev/de/) |
+
 ## 📖 Table of Contents
 
 - [Quick Start](#quick-start)
@@ -131,6 +143,16 @@ console.log(result);
 
 ## 📚 Documentation
 
+### 🌐 Online Documentation (Multi-language)
+Our comprehensive documentation is available online with multi-language support:
+
+- **🇺🇸 English**: [skingflow-docs.pages.dev](https://skingflow-docs.pages.dev/)
+- **🇨🇳 中文**: [skingflow-docs.pages.dev/zh/](https://skingflow-docs.pages.dev/zh/)
+- **🇪🇸 Español**: [skingflow-docs.pages.dev/es/](https://skingflow-docs.pages.dev/es/)
+- **🇫🇷 Français**: [skingflow-docs.pages.dev/fr/](https://skingflow-docs.pages.dev/fr/)
+- **🇩🇪 Deutsch**: [skingflow-docs.pages.dev/de/](https://skingflow-docs.pages.dev/de/)
+
+### 📖 Documentation Topics
 - **[Installation Guide](docs/installation.md)** - Detailed installation and configuration steps
 - **[Basic Usage Tutorial](docs/basic-usage.md)** - Step-by-step usage tutorial
 - **[Advanced Configuration](docs/advanced-config.md)** - Advanced features and custom configuration
@@ -151,15 +173,20 @@ console.log(result);
 
 ## 🌐 Language Support
 
-This project supports multiple languages:
+This project is fully internationalized with comprehensive multi-language support:
 
+### README Files
 - 🇺🇸 **English** - [README.md](README.md)
 - 🇨🇳 **中文** - [README.zh.md](README.zh.md)
 - 🇪🇸 **Español** - [README.es.md](README.es.md)
 - 🇫🇷 **Français** - [README.fr.md](README.fr.md)
 - 🇩🇪 **Deutsch** - [README.de.md](README.de.md)
 
-📖 **Online Documentation**: [skingflow-docs.pages.dev](https://skingflow-docs.pages.dev/)
+### Online Documentation
+📖 **Multi-language Documentation**: [skingflow-docs.pages.dev](https://skingflow-docs.pages.dev/)
+- Full language switching support
+- Responsive design for all devices
+- Comprehensive API references and examples
 
 ## 🚀 Production Ready
 
