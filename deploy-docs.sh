@@ -43,7 +43,22 @@ else
 fi
 
 echo "🚀 Deploying to Cloudflare Pages..."
-if wrangler pages deploy ./.vitepress/dist --project-name=skingflow-docs --branch=main; then
+
+# Generate deployment info
+COMMIT_SHA=$(git rev-parse --short HEAD 2>/dev/null || echo "unknown")
+BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "unknown")
+DEPLOY_MESSAGE="Docs: Local deployment from ${BRANCH_NAME} (${COMMIT_SHA})"
+
+echo "📋 Deployment info:"
+echo "  Branch: ${BRANCH_NAME}"
+echo "  Commit: ${COMMIT_SHA}"
+echo "  Message: ${DEPLOY_MESSAGE}"
+
+if wrangler pages deploy ./.vitepress/dist \
+  --project-name=skingflow-docs \
+  --branch=main \
+  --commit-dirty=true \
+  --commit-message="${DEPLOY_MESSAGE}"; then
     echo "✅ Deployment successful!"
     echo "🌐 Documentation will be available at: https://skingflow-docs.pages.dev"
 else

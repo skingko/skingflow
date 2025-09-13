@@ -62,9 +62,25 @@ jobs:
 
       - name: Deploy to Cloudflare Pages (Wrangler)
         run: |
-          # Deploy with error handling
+          # Deploy with explicit commit message and dirty commit handling
           echo "Starting deployment to Cloudflare Pages using Wrangler..."
-          if wrangler pages deploy ./skingflow/website/.vitepress/dist --project-name=skingflow-docs --branch=main; then
+
+          # Generate deployment info
+          COMMIT_SHA="${GITHUB_SHA::7}"
+          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+          DEPLOY_MESSAGE="Docs: Update from ${BRANCH_NAME} (${COMMIT_SHA})"
+
+          echo "Deployment info:"
+          echo "  Branch: ${BRANCH_NAME}"
+          echo "  Commit: ${COMMIT_SHA}"
+          echo "  Message: ${DEPLOY_MESSAGE}"
+
+          # Deploy with explicit parameters
+          if wrangler pages deploy ./skingflow/website/.vitepress/dist \
+            --project-name=skingflow-docs \
+            --branch=main \
+            --commit-dirty=true \
+            --commit-message="${DEPLOY_MESSAGE}"; then
             echo "✅ Wrangler deployment successful!"
           else
             echo "❌ Wrangler deployment failed"
