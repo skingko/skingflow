@@ -30,10 +30,27 @@ Welcome to the SkinFlow documentation. SkinFlow is a flexible flow engine for in
 - [NPM Package](https://www.npmjs.com/package/skingflow)
 - [Issues](https://github.com/skingko/skingflow/issues)
 
+## 📞 Contact
+
+- **GitHub**: [@skingko](https://github.com/skingko)
+- **WeChat**: skingko
+- **Project Link**: [SkinFlow Framework](https://github.com/skingko/skingflow)
+
+## 📱 Follow Us
+
+<div align="center">
+
+### WeChat Official Account
+<img src="https://test-models.oss-cn-shanghai.aliyuncs.com/pics_go/202509110044079.jpg" width="200" alt="WeChat Official Account QR Code">
+
+*Scan to follow our WeChat Official Account for updates*
+
+### Add Author WeChat
+<img src="https://test-models.oss-cn-shanghai.aliyuncs.com/pics_go/202509102242338.png" width="200" alt="Author WeChat QR Code">
+
+</div>
+
 ## Language Support
 
 - [English](/)
 - [中文](/zh/)
-- [Español](/es/)
-- [Français](/fr/)
-- [Deutsch](/de/)
