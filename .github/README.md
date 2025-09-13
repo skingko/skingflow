@@ -12,9 +12,19 @@ This directory contains the GitHub Actions workflows for automated deployment an
 - Manual workflow dispatch
 
 **What it does**:
+- Sets up Node.js 20 with caching
 - Builds the documentation website in `skingflow/website/`
+- Installs and configures Wrangler CLI
+- Automatically creates Cloudflare Pages project if it doesn't exist
 - Deploys to Cloudflare Pages project: `skingflow-docs`
-- Uses Node.js 20 for building
+- Provides fallback deployment method using Cloudflare Pages Action
+
+**New Features**:
+- ✅ **Automatic Wrangler Installation**: Installs latest Wrangler CLI
+- ✅ **Project Auto-Creation**: Creates Pages project if it doesn't exist
+- ✅ **Enhanced Error Handling**: Multiple deployment strategies with fallback
+- ✅ **Detailed Logging**: Comprehensive deployment progress tracking
+- ✅ **Memory Optimization**: Configured Node.js memory limits for large builds
 
 **Required Secrets**:
 - `CLOUDFLARE_API_TOKEN`: Cloudflare API token with Pages edit permissions
@@ -68,6 +78,25 @@ This directory contains the GitHub Actions workflows for automated deployment an
 ## Manual Trigger
 
 You can manually trigger both workflows from the Actions tab in your GitHub repository.
+
+## Local Deployment
+
+For local testing and deployment, you can use the provided deployment script:
+
+```bash
+# Set environment variables
+export CLOUDFLARE_API_TOKEN="your-api-token"
+export CLOUDFLARE_ACCOUNT_ID="your-account-id"
+
+# Run deployment script
+./deploy-docs.sh
+```
+
+The script will:
+- Install dependencies and build documentation
+- Install and configure Wrangler CLI
+- Create Pages project if needed
+- Deploy to Cloudflare Pages
 
 ## Troubleshooting
 
