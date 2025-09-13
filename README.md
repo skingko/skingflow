@@ -12,7 +12,7 @@
 
 **🌐 Website**: [www.skingflow.com](https://www.skingflow.com)
 
-**🌐 Languages**: [English](#) | [中文](./README.zh-CN.md) | [日本語](./README.ja.md) | [한국어](./README.ko.md) | [Español](./README.es.md) | [Deutsch](./README.de.md) | [Français](./README.fr.md)
+**🌐 Languages**: [English](#) | [中文](./README.zh-CN.md)
 
 This project is available in multiple languages:
 
@@ -20,11 +20,6 @@ This project is available in multiple languages:
 |----------|--------|---------------|
 | 🇺🇸 **English** | [README.md](README.md) | [Online Docs](https://skingflow-docs.pages.dev/) |
 | 🇨🇳 **中文** | [README.zh-CN.md](README.zh-CN.md) | [中文文档](https://skingflow-docs.pages.dev/zh/) |
-| 🇪🇸 **Español** | [README.es.md](README.es.md) | [Docs en Español](https://skingflow-docs.pages.dev/es/) |
-| 🇫🇷 **Français** | [README.fr.md](README.fr.md) | [Docs en Français](https://skingflow-docs.pages.dev/fr/) |
-| 🇩🇪 **Deutsch** | [README.de.md](README.de.md) | [Dokumentation auf Deutsch](https://skingflow-docs.pages.dev/de/) |
-| 🇯🇵 **日本語** | [README.ja.md](README.ja.md) | [日本語ドキュメント](https://skingflow-docs.pages.dev/ja/) |
-| 🇰🇷 **한국어** | [README.ko.md](README.ko.md) | [한국어 문서](https://skingflow-docs.pages.dev/ko/) |
 
 ## 📖 Table of Contents
 
@@ -149,16 +144,11 @@ console.log(result);
 
 ## 📚 Documentation
 
-### 🌐 Online Documentation (Multi-language)
-Our comprehensive documentation is available online with multi-language support:
+### 🌐 Online Documentation
+Our comprehensive documentation is available online:
 
 - **🇺🇸 English**: [skingflow-docs.pages.dev](https://skingflow-docs.pages.dev/)
 - **🇨🇳 中文**: [skingflow-docs.pages.dev/zh/](https://skingflow-docs.pages.dev/zh/)
-- **🇪🇸 Español**: [skingflow-docs.pages.dev/es/](https://skingflow-docs.pages.dev/es/)
-- **🇫🇷 Français**: [skingflow-docs.pages.dev/fr/](https://skingflow-docs.pages.dev/fr/)
-- **🇩🇪 Deutsch**: [skingflow-docs.pages.dev/de/](https://skingflow-docs.pages.dev/de/)
-- **🇯🇵 日本語**: [skingflow-docs.pages.dev/ja/](https://skingflow-docs.pages.dev/ja/)
-- **🇰🇷 한국어**: [skingflow-docs.pages.dev/ko/](https://skingflow-docs.pages.dev/ko/)
 
 ### 📖 Documentation Topics
 - **[Installation Guide](docs/installation.md)** - Detailed installation and configuration steps
@@ -170,6 +160,8 @@ Our comprehensive documentation is available online with multi-language support:
 - **[API Reference](docs/api-reference.md)** - Complete API documentation
 - **[Best Practices](docs/best-practices.md)** - Production environment recommendations
 - **[Troubleshooting](docs/troubleshooting.md)** - Common problem solutions
+
+📝 *Note: Local documentation files are being prepared. Please refer to the online documentation for now.*
 
 ## 🎯 Examples
 
@@ -191,18 +183,15 @@ Our comprehensive documentation is available online with multi-language support:
 - **[SkinFlow MCP](examples/skingflow-mcp/)** - MCP protocol integration
 - **[SkinFlow A2A](examples/skingflow-a2a/)** - Agent-to-agent communication
 
+📝 *Note: Example files are being prepared. Please check the repository structure for available examples.*
+
 ## 🌐 Language Support
 
-This project is fully internationalized with comprehensive multi-language support:
+This project is fully internationalized with multi-language support:
 
 ### README Files
 - 🇺🇸 **English** - [README.md](README.md)
 - 🇨🇳 **中文** - [README.zh-CN.md](README.zh-CN.md)
-- 🇪🇸 **Español** - [README.es.md](README.es.md)
-- 🇫🇷 **Français** - [README.fr.md](README.fr.md)
-- 🇩🇪 **Deutsch** - [README.de.md](README.de.md)
-- 🇯🇵 **日本語** - [README.ja.md](README.ja.md)
-- 🇰🇷 **한국어** - [README.ko.md](README.ko.md)
 
 ### Online Documentation
 📖 **Multi-language Documentation**: [skingflow-docs.pages.dev](https://skingflow-docs.pages.dev/)
@@ -236,8 +225,7 @@ We welcome community contributions! Please check the [Contributing Guide](CONTRI
 
 ## 📞 Support
 
-- **Documentation**: [Complete Documentation](docs/)
-- **Examples**: [Example Code](examples/)
+- **Documentation**: [Online Documentation](https://skingflow-docs.pages.dev/)
 - **Issue Feedback**: [GitHub Issues](https://github.com/skingko/skingflow/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/skingko/skingflow/discussions)
 
