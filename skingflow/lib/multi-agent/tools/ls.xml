@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool>
+  <name>ls</name>
+  <description>
+    Tool for listing files in the virtual filesystem. Shows all files that have been created during the current session.
+    
+    This is useful for:
+    - Getting an overview of available files
+    - Checking what files have been created by other agents
+    - Finding files by name pattern
+    - Understanding the current project structure
+  </description>
+  
+  <category>filesystem</category>
+  <tags>
+    <tag>file-operations</tag>
+    <tag>virtual-filesystem</tag>
+    <tag>directory-listing</tag>
+  </tags>
+  
+  <parameters>
+    <param name="pattern" type="string" required="false">Optional pattern to filter files (supports basic wildcards)</param>
+    <param name="show_details" type="boolean" required="false">Whether to show detailed file information (size, type, dates)</param>
+  </parameters>
+  
+  <examples>
+    <example>
+      <input></input>
+      <output>
+index.html (156 bytes, html, 2024-01-15T10:30:00Z)
+styles.css (89 bytes, css, 2024-01-15T10:31:00Z)
+script.js (234 bytes, javascript, 2024-01-15T10:32:00Z)
+      </output>
+    </example>
+    
+    <example>
+      <input>
+        <pattern>*.js</pattern>
+      </input>
+      <output>
+script.js (234 bytes, javascript, 2024-01-15T10:32:00Z)
+      </output>
+    </example>
+  </examples>
+</tool>

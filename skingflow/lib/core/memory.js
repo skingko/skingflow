@@ -692,9 +692,10 @@ export class MemoryNode extends AsyncNode {
           yield 'Searching memories...\n';
           const results = await this.memory.search(prepRes.data, prepRes.userId);
           yield `Found ${results.length} memories:\n`;
-          results.forEach((memory, index) => {
+          for (let index = 0; index < results.length; index++) {
+            const memory = results[index];
             yield `${index + 1}. ${memory.content.substring(0, 100)}...\n`;
-          });
+          }
           break;
           
         case 'update':

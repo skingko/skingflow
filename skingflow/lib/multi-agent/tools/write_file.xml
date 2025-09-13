@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool>
+  <name>write_file</name>
+  <description>
+    Tool for writing to a file in the virtual filesystem. This creates or overwrites files that can be shared between agents and accessed later in the session.
+    
+    The virtual filesystem is isolated per session and provides a safe environment for file operations without affecting the real filesystem.
+    
+    Use this tool when you need to:
+    - Create new files with content
+    - Save generated code, documents, or data
+    - Store intermediate results for later use
+    - Share information between different agents
+  </description>
+  
+  <category>filesystem</category>
+  <tags>
+    <tag>file-operations</tag>
+    <tag>virtual-filesystem</tag>
+    <tag>storage</tag>
+  </tags>
+  
+  <parameters>
+    <param name="filename" type="string" required="true">Name of the file to create or overwrite</param>
+    <param name="content" type="string" required="true">Content to write to the file</param>
+    <param name="metadata" type="object" required="false">Optional metadata about the file</param>
+  </parameters>
+  
+  <examples>
+    <example>
+      <input>
+        <filename>index.html</filename>
+        <content>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My App&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</content>
+        <metadata>
+          <description>Main HTML file for web application</description>
+          <tags>["html", "frontend", "main"]</tags>
+        </metadata>
+      </input>
+      <output>File "index.html" written successfully (156 bytes)</output>
+    </example>
+  </examples>
+</tool>

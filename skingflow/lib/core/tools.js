@@ -221,7 +221,7 @@ export class Tool extends EventEmitter {
       }
       
       // Execute tool
-      const result = await this._execute(parameters);
+      const result = await this._execute(parameters, this.context || {});
       
       this.stats.successes++;
       this.stats.totalTime += Date.now() - startTime;
@@ -235,9 +235,9 @@ export class Tool extends EventEmitter {
     }
   }
 
-  async _execute(parameters) {
+  async _execute(parameters, context = {}) {
     if (typeof this.implementation === 'function') {
-      return await this.implementation(parameters);
+      return await this.implementation(parameters, context);
     } else {
       throw new Error('Tool implementation not provided');
     }
@@ -418,6 +418,33 @@ export class ToolRegistry extends EventEmitter {
   }
 
   /**
+   * Check if tool exists
+   */
+  has(name) {
+    return this.tools.has(name);
+  }
+
+  /**
+   * Register virtual file system tools
+   */
+  async registerVirtualFileSystemTools(virtualFs) {
+    const { VirtualFileSystemTools } = await import('../multi-agent/filesystem/virtual-fs.js');
+    
+    for (const [name, toolDef] of Object.entries(VirtualFileSystemTools)) {
+      const tool = new Tool({
+        name: toolDef.name,
+        description: toolDef.description,
+        parameters: toolDef.parameters,
+        category: 'filesystem',
+        tags: ['virtual', 'file', 'system'],
+        execute: (params, context) => toolDef.execute(params, { ...context, virtualFs })
+      });
+      
+      this.register(tool);
+    }
+  }
+
+  /**
    * Get tools by category
    */
   getByCategory(category) {
@@ -478,12 +505,19 @@ export class ToolRegistry extends EventEmitter {
   /**
    * Execute tool by name
    */
-  async execute(name, parameters = {}) {
+  async execute(name, parameters = {}, context = {}) {
     const tool = this.tools.get(name);
     if (!tool) {
       throw new Error(`Tool not found: ${name}`);
     }
     
+    // Pass context to tool execution
+    if (tool.definition.execute && typeof tool.definition.execute === 'function') {
+      return await tool.definition.execute(parameters, context);
+    }
+    
+    // Set context on tool and execute
+    tool.context = context;
     return await tool.execute(parameters);
   }
 
@@ -521,8 +555,14 @@ export class ToolRegistry extends EventEmitter {
           
           try {
             const impl = await import(implPath);
-            const tool = new Tool(definition, impl.default || impl[definition.name]);
-            this.register(tool);
+            // Try different export patterns
+            const implementation = impl.default || impl[definition.name] || impl.execute;
+            if (implementation && typeof implementation === 'function') {
+              const tool = new Tool(definition, implementation);
+              this.register(tool);
+            } else {
+              console.warn(`No valid implementation found for tool ${definition.name} in ${implPath}`);
+            }
           } catch (implError) {
             console.warn(`Implementation not found for tool ${definition.name}: ${implPath}`);
           }

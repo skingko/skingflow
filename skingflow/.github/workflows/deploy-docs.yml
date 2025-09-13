@@ -1,0 +1,59 @@
+name: Deploy Documentation to Cloudflare Pages
+
+on:
+  push:
+    branches: [ main, dev ]
+    paths:
+      - 'website/**'
+      - '.github/workflows/deploy-docs.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'website/**'
+      - '.github/workflows/deploy-docs.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: 'website/package-lock.json'
+
+      - name: Install dependencies
+        working-directory: ./website
+        run: npm ci
+
+      - name: Build documentation
+        working-directory: ./website
+        run: npm run build
+
+      - name: Setup Pages
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: skingflow-docs
+          directory: ./website/.vitepress/dist
+          branch: main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy ./website/.vitepress/dist --project-name=skingflow-docs

@@ -264,7 +264,7 @@ class AsyncParallelBatchFlow extends AsyncFlow {
   }
 }
 
-module.exports = {
+export {
   BaseNode,
   Node,
   BatchNode,
