@@ -13,8 +13,28 @@ export default defineConfig({
 
   // Multi-language configuration
   locales: {
-    root: { label: 'English', lang: 'en' },
-    zh: { label: '中文', lang: 'zh' }
+    root: {
+      label: 'English',
+      lang: 'en',
+      themeConfig: {
+        nav: [
+          { text: 'Guide', link: '/docs/guide/' },
+          { text: 'API', link: '/docs/api/' },
+          { text: 'Examples', link: '/docs/examples/' }
+        ]
+      }
+    },
+    zh: {
+      label: '中文',
+      lang: 'zh',
+      themeConfig: {
+        nav: [
+          { text: '指南', link: '/zh/docs/guide/' },
+          { text: 'API', link: '/zh/docs/api/' },
+          { text: '示例', link: '/zh/docs/examples/' }
+        ]
+      }
+    }
   },
 
   // Default locale
@@ -23,46 +43,45 @@ export default defineConfig({
   // Theme configuration
   themeConfig: {
     nav: [
-      { text: 'Guide', link: '/guide/introduction' },
-      { text: 'API', link: '/api/framework' },
-      { text: 'Examples', link: '/examples/quick-start' },
-      { text: '中文', link: '/zh/' }
+      { text: 'Guide', link: '/guide/' },
+      { text: 'API', link: '/api/' },
+      { text: 'Examples', link: '/examples/' }
     ],
 
     sidebar: {
       '/': [
         {
-          text: 'Documentation',
+          text: 'Guide',
           items: [
-            { text: 'Introduction', link: '/guide/introduction' },
-            { text: 'Getting Started', link: '/guide/getting-started' },
-            { text: 'Core Features', link: '/guide/core-features' },
-            { text: 'Architecture', link: '/guide/architecture' },
-            { text: 'Configuration', link: '/guide/configuration' }
+            { text: 'Introduction', link: '/docs/guide/introduction' },
+            { text: 'Getting Started', link: '/docs/guide/getting-started' },
+            { text: 'Core Features', link: '/docs/guide/core-features' },
+            { text: 'Architecture', link: '/docs/guide/architecture' },
+            { text: 'Configuration', link: '/docs/guide/configuration' }
           ]
         },
         {
           text: 'API Reference',
           items: [
-            { text: 'Framework API', link: '/api/framework' },
-            { text: 'Agent API', link: '/api/agent' },
-            { text: 'Tool API', link: '/api/tool' },
-            { text: 'Memory API', link: '/api/memory' }
+            { text: 'Framework API', link: '/docs/api/framework' },
+            { text: 'Agent API', link: '/docs/api/agent' },
+            { text: 'Tool API', link: '/docs/api/tool' },
+            { text: 'Memory API', link: '/docs/api/memory' }
           ]
         },
         {
           text: 'Examples',
           items: [
-            { text: 'Quick Start', link: '/examples/quick-start' },
-            { text: 'Intelligent Assistant', link: '/examples/intelligent-assistant' },
-            { text: 'Content Creation', link: '/examples/content-creation' },
-            { text: 'Data Analysis', link: '/examples/data-analysis' }
+            { text: 'Quick Start', link: '/docs/examples/quick-start' },
+            { text: 'Intelligent Assistant', link: '/docs/examples/intelligent-assistant' },
+            { text: 'Content Creation', link: '/docs/examples/content-creation' },
+            { text: 'Data Analysis', link: '/docs/examples/data-analysis' }
           ]
         }
       ],
       '/zh/': [
         {
-          text: '文档',
+          text: '指南',
           items: [
             { text: '介绍', link: '/zh/docs/guide/introduction' },
             { text: '入门指南', link: '/zh/docs/guide/getting-started' },
