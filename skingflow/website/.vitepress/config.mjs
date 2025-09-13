@@ -1,15 +1,8 @@
-// ESM config for VitePress
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: 'SkinFlow',
   description: 'Flexible flow engine for intelligent multi-agent applications',
-
-  // Ignore dead links for now (will be fixed later)
-  ignoreDeadLinks: true,
-
-  // Base path for Cloudflare Pages
-  base: '/',
 
   // Multi-language configuration
   locales: {
