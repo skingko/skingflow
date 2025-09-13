@@ -131,23 +131,30 @@ console.log(result);
 
 ## 📚 详细文档
 
-- **[安装配置指南](docs/installation.md)** - 详细的安装和配置步骤
-- **[基础使用教程](docs/basic-usage.md)** - 从零开始的使用教程
-- **[高级配置](docs/advanced-config.md)** - 高级特性和自定义配置
-- **[工具系统](docs/tools.md)** - 工具开发和集成指南
-- **[记忆系统](docs/memory.md)** - 记忆管理详细说明
-- **[智能体系统](docs/agents.md)** - 多智能体协作机制
-- **[API参考](docs/api-reference.md)** - 完整的API文档
-- **[最佳实践](docs/best-practices.md)** - 生产环境使用建议
-- **[故障排除](docs/troubleshooting.md)** - 常见问题解决方案
+- **[介绍](website/docs/guide/introduction.md)** - 框架概述和快速开始
+- **[入门指南](website/docs/guide/getting-started.md)** - 安装和基础配置
+- **[核心功能](website/docs/guide/core-features.md)** - 多智能体系统功能
+- **[架构设计](website/docs/guide/architecture.md)** - 系统架构和组件
+- **[配置指南](website/docs/guide/configuration.md)** - 高级配置选项
+- **[框架API](website/docs/api/framework.md)** - 主要框架接口
+- **[智能体API](website/docs/api/agent.md)** - 多智能体系统API
+- **[工具API](website/docs/api/tool.md)** - 工具系统集成
+- **[内存API](website/docs/api/memory.md)** - 内存管理API
+- **[示例文档](website/docs/examples/)** - 实际使用示例
 
 ## 🎯 示例项目
 
+### 📁 本地示例
 - **[快速开始](examples/quick-start/)** - 最简单的使用示例
 - **[智能助手](examples/intelligent-assistant/)** - 完整的智能助手应用
 - **[内容创作](examples/content-creation/)** - 自动化内容生成
 - **[数据分析](examples/data-analysis/)** - 智能数据处理
-- **[Web应用生成](examples/web-app-generator/)** - 自动化Web开发
+
+### 🌐 在线文档示例
+- **[快速开始指南](website/docs/examples/quick-start.md)** - 手把手入门教程
+- **[智能助手示例](website/docs/examples/intelligent-assistant.md)** - 构建智能助手
+- **[内容创作示例](website/docs/examples/content-creation.md)** - 自动化内容生成
+- **[数据分析示例](website/docs/examples/data-analysis.md)** - 智能数据处理
 
 ## 🌐 语言支持
 
@@ -187,10 +194,11 @@ SkinFlow 框架经过充分测试，具备以下生产特性：
 
 ## 📞 支持
 
-- **文档**: [完整文档](docs/)
-- **示例**: [示例代码](examples/)
-- **问题反馈**: [GitHub Issues](https://github.com/skingko/skingflow/issues)
-- **讨论**: [GitHub Discussions](https://github.com/skingko/skingflow/discussions)
+- **📚 在线文档**: [完整文档](https://skingflow-docs.pages.dev/)
+- **📖 本地文档**: [文档源码](website/docs/)
+- **💻 示例代码**: [本地示例](examples/) | [在线示例](website/docs/examples/)
+- **🐛 问题反馈**: [GitHub Issues](https://github.com/skingko/skingflow/issues)
+- **💬 讨论**: [GitHub Discussions](https://github.com/skingko/skingflow/discussions)
 
 ## 📄 许可证
 

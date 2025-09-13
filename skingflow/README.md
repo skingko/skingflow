@@ -153,23 +153,30 @@ Our comprehensive documentation is available online with multi-language support:
 - **🇩🇪 Deutsch**: [skingflow-docs.pages.dev/de/](https://skingflow-docs.pages.dev/de/)
 
 ### 📖 Documentation Topics
-- **[Installation Guide](docs/installation.md)** - Detailed installation and configuration steps
-- **[Basic Usage Tutorial](docs/basic-usage.md)** - Step-by-step usage tutorial
-- **[Advanced Configuration](docs/advanced-config.md)** - Advanced features and custom configuration
-- **[Tool System](docs/tools.md)** - Tool development and integration guide
-- **[Memory System](docs/memory.md)** - Detailed memory management explanation
-- **[Agent System](docs/agents.md)** - Multi-agent collaboration mechanism
-- **[API Reference](docs/api-reference.md)** - Complete API documentation
-- **[Best Practices](docs/best-practices.md)** - Production environment recommendations
-- **[Troubleshooting](docs/troubleshooting.md)** - Common problem solutions
+- **[Introduction](website/docs/guide/introduction.md)** - Framework overview and getting started
+- **[Getting Started](website/docs/guide/getting-started.md)** - Installation and basic configuration
+- **[Core Features](website/docs/guide/core-features.md)** - Multi-agent system capabilities
+- **[Architecture](website/docs/guide/architecture.md)** - System design and components
+- **[Configuration](website/docs/guide/configuration.md)** - Advanced configuration options
+- **[Framework API](website/docs/api/framework.md)** - Main framework interface
+- **[Agent API](website/docs/api/agent.md)** - Multi-agent system API
+- **[Tool API](website/docs/api/tool.md)** - Tool system integration
+- **[Memory API](website/docs/api/memory.md)** - Memory management API
+- **[Examples](website/docs/examples/)** - Practical usage examples
 
 ## 🎯 Examples
 
+### 📁 Local Examples
 - **[Quick Start](examples/quick-start/)** - Simplest usage example
 - **[Intelligent Assistant](examples/intelligent-assistant/)** - Complete intelligent assistant application
 - **[Content Creation](examples/content-creation/)** - Automated content generation
 - **[Data Analysis](examples/data-analysis/)** - Intelligent data processing
-- **[Web App Generator](examples/web-app-generator/)** - Automated web development
+
+### 🌐 Online Documentation Examples
+- **[Quick Start Guide](website/docs/examples/quick-start.md)** - Step-by-step getting started
+- **[Intelligent Assistant Example](website/docs/examples/intelligent-assistant.md)** - Building smart assistants
+- **[Content Creation Example](website/docs/examples/content-creation.md)** - Automated content generation
+- **[Data Analysis Example](website/docs/examples/data-analysis.md)** - Intelligent data processing
 
 ## 🌐 Language Support
 
@@ -214,10 +221,11 @@ We welcome community contributions! Please check the [Contributing Guide](CONTRI
 
 ## 📞 Support
 
-- **Documentation**: [Complete Documentation](docs/)
-- **Examples**: [Example Code](examples/)
-- **Issue Feedback**: [GitHub Issues](https://github.com/skingko/skingflow/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/skingko/skingflow/discussions)
+- **📚 Online Documentation**: [Complete Documentation](https://skingflow-docs.pages.dev/)
+- **📖 Local Documentation**: [Documentation Source](website/docs/)
+- **💻 Example Code**: [Local Examples](examples/) | [Online Examples](website/docs/examples/)
+- **🐛 Issue Feedback**: [GitHub Issues](https://github.com/skingko/skingflow/issues)
+- **💬 Discussions**: [GitHub Discussions](https://github.com/skingko/skingflow/discussions)
 
 ## 📄 License
 
