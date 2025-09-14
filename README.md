@@ -19,7 +19,7 @@ This project is available in multiple languages:
 | Language | README | Documentation |
 |----------|--------|---------------|
 | 🇺🇸 **English** | [README.md](README.md) | [Online Docs](https://skingflow-docs.pages.dev/) |
-| 🇨🇳 **中文** | [README.zh-CN.md](README.zh-CN.md) | [中文文档](https://skingflow-docs.pages.dev/zh/) |
+| 🇨🇳 **中文** | [README.zh.md](README.zh.md) | [中文文档](https://skingflow-docs.pages.dev/zh/) |
 
 ## 📖 Table of Contents
 
